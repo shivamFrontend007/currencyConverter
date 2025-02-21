@@ -70,9 +70,9 @@ const dropdown = document.querySelectorAll(".dropdown select");
 const btn = document.querySelector("form button");
 const fromCurr = document.querySelector(".from select");
 const toCurr = document.querySelector(".to select");
-const msg = document.querySelector(".result");  // This is the element to display the result
+const msg = document.querySelector(".result");  
 
-// Loop to populate the currency dropdowns
+
 for (let select of dropdown) {
     for (currCode in countryList) {
         let newOption = document.createElement("option");
@@ -92,7 +92,7 @@ for (let select of dropdown) {
     });
 }
 
-// Update exchange rate using the new API
+
 const updateExchangeRate = async () => {
     let amount = document.querySelector(".amount input");
     let amtVal = amount.value;
@@ -101,19 +101,19 @@ const updateExchangeRate = async () => {
         amount.value = "1";
     }
 
-    // Construct URL for the new API
+    
     const URL = `${BASE_URL}&base_currency=${fromCurr.value.toUpperCase()}`;
     let response = await fetch(URL);
     let data = await response.json();
 
-    // Get the exchange rate from the response (we get all currencies in `data.data`)
+  
     let rate = data.data[toCurr.value.toUpperCase()].value;
 
     let finalAmount = amtVal * rate;
     msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
 };
 
-// Update flag image based on selected currency
+
 const updateFlag = (element) => {
     let currCode = element.value;
     let countryCode = countryList[currCode];  
@@ -122,11 +122,8 @@ const updateFlag = (element) => {
     img.src = newSrc;
 };
 
-btn.addEventListener("click", (evt) => {
-    evt.preventDefault();
-    updateExchangeRate();
-});
 
-window.addEventListener("load", () => {
+btn.addEventListener("click", (evt) => {
+    evt.preventDefault(); 
     updateExchangeRate();
 });

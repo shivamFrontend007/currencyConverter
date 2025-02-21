@@ -1,0 +1,51 @@
+@media (max-width: 600px) {
+    .container {
+        width: 90%; 
+        padding: 1.5rem; 
+        margin: 10%;
+    }
+
+    form input, form select, form button {
+        font-size: 0.9rem; 
+        height: 2.5rem; 
+    }
+
+    .msg {
+        font-size: 1rem; 
+    }
+
+    .dropdown {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .select-container {
+        width: 100%; 
+        margin-bottom: 1rem; 
+    }
+
+    .select-container img {
+        max-width: 1.5rem; 
+    }
+
+    form button {
+        font-size: 0.9rem; 
+        height: 2.5rem;
+    }
+}
+
+
+@media (max-width: 375px) {
+    .container {
+        width: 95%; 
+    }
+
+    .msg {
+        font-size: 0.9rem; 
+    }
+
+    form button {
+        font-size: 0.8rem; 
+        height: 2.2rem; 
+    }
+}
